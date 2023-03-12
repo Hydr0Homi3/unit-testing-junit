@@ -27,4 +27,32 @@ public class AccountTest {
         assertTrue(newAccount.isActive());
     }
 
+    @Test
+    public void newlyCreatedAccountShouldNotHaveDefaultDeliveryAddressSet() {
+
+        //given
+        Account account = new Account();
+
+        //while
+        Address address = account.getDefaultDeliveryAddress();
+
+        //then
+        assertNull(address);
+    }
+
+    @Test
+    public void defaultDeliveryAddressShouldNotBeNullAfterBeingSet() {
+
+        //given
+        Address address = new Address("Krakowska", "6");
+        Account account = new Account();
+        account.setDefaultDeliveryAddress(address);
+
+        //when
+        Address defaultAddress = account.getDefaultDeliveryAddress();
+
+        //then
+        assertNotNull(defaultAddress);
+    }
+
 }
