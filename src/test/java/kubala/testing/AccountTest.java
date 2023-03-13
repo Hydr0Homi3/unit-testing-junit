@@ -1,11 +1,14 @@
 package kubala.testing;
 
+import com.thoughtworks.qdox.model.expression.Add;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 public class AccountTest {
 
@@ -61,6 +64,21 @@ public class AccountTest {
         //then
         assertNotNull(defaultAddress);
         assertThat(defaultAddress, notNullValue());
+    }
+
+    @RepeatedTest(5)
+    public void newAccountWithNotNullAddressShouldBeActive() {
+
+        //given
+        Address address = new Address("Krakowska", "6 ");
+
+        //when
+        Account account = new Account(address);
+
+        //then
+        assumingThat(address != null, () -> {
+            assertTrue(account.isActive());
+        });
     }
 
 }
