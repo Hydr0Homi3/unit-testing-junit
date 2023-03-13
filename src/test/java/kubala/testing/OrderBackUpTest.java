@@ -3,6 +3,7 @@ package kubala.testing;
 import com.thoughtworks.qdox.model.expression.Or;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -18,6 +19,7 @@ public class OrderBackUpTest {
         orderBackup.createFile();
     }
 
+    @Tag("fries")
     @Test
     public void backupOrderWithOneMeal() throws IOException {
 
