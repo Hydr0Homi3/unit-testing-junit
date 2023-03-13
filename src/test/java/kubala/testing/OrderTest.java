@@ -1,5 +1,7 @@
 package kubala.testing;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,6 +12,20 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class OrderTest {
+
+    private Order order;
+
+    @BeforeEach
+    public void initializeOrder() {
+        System.out.println("Inside @BeforeEach method");
+        order = new Order();
+    }
+
+    @AfterEach
+    public void cleanUp() {
+        System.out.println("Inside @AfterEachMethod");
+        order.cancel();
+    }
 
     @Test
     public void testAssertArrayEquals() {
@@ -25,9 +41,6 @@ public class OrderTest {
     @Test
     public void mealListShouldBeEmptyAfterCreationOfOrder() {
 
-        //given
-        Order order = new Order();
-
         //then
         assertThat(order.getMeals(), empty());
         assertThat(order.getMeals().size(), equalTo(0));
@@ -41,7 +54,6 @@ public class OrderTest {
         //given
         Meal meal = new Meal(15, "Burger");
         Meal meal2 = new Meal(5, "Sandwich");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal);
@@ -59,7 +71,6 @@ public class OrderTest {
 
         //given
         Meal meal = new Meal(15, "Burger");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal);
@@ -76,7 +87,6 @@ public class OrderTest {
         //given
         Meal meal1 = new Meal(15, "Burger");
         Meal meal2 = new Meal(5, "Sandwich");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal1);
@@ -94,7 +104,6 @@ public class OrderTest {
         Meal meal1 = new Meal(15, "Burger");
         Meal meal2 = new Meal(5, "Sandwich");
         Meal meal3 = new Meal(11, "Kebab");
-        Order order = new Order();
 
         List<Meal> meals1 = Arrays.asList(meal1, meal2);
         List<Meal> meals2 = Arrays.asList(meal1, meal2);

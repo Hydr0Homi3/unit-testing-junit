@@ -19,5 +19,8 @@ public class Order {
         return meals;
     }
 
+    public void cancel() {
+        this.meals.clear();
+    }
 
 }
