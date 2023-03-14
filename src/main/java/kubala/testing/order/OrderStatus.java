@@ -1,4 +1,4 @@
-package kubala.testing;
+package kubala.testing.order;
 
 public enum OrderStatus {
 

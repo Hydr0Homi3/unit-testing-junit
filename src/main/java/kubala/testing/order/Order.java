@@ -1,4 +1,6 @@
-package kubala.testing;
+package kubala.testing.order;
+
+import kubala.testing.Meal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,17 @@ public class Order {
 
     public void cancel() {
         this.meals.clear();
+    }
+
+    public int totalPrice() {
+
+        int sum = this.meals.stream().mapToInt(meal -> meal.getPrice()).sum();
+
+        if(sum < 0) {
+            throw new IllegalStateException("Price limit exceeded");
+        } else {
+            return sum;
+        }
     }
 
     @Override

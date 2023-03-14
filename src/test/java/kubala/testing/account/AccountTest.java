@@ -1,6 +1,5 @@
-package kubala.testing;
+package kubala.testing.account;
 
-import com.thoughtworks.qdox.model.expression.Add;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -81,6 +80,17 @@ public class AccountTest {
         assumingThat(address != null, () -> {
             assertTrue(account.isActive());
         });
+    }
+
+    @Test
+    public void invalidEmailShouldThrowException() {
+
+        //given
+        Account account = new Account();
+
+        //when
+        //then
+        assertThrows(IllegalArgumentException.class, () -> account.setEmail("wrong email"));
     }
 
 }

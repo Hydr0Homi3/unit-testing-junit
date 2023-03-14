@@ -1,0 +1,15 @@
+Zasady FIRST:
+F - fast - testy jednostkowe powinny wykonywac sie szybko
+I - isolated - testy powinny skupiac sie na jak najmniejszej jednostce. Rowniez, odizolowanie kodu od operacji na bazach danych. Odizolowany od innych testow
+R - repeatable - testy powinny zawsze dawac ten sam wynik przy wielokrotnym uruchomieniu na tym samym kodzie
+S - self-validating - uruchamianie testow musi odbywac sie automatycznie najlepiej jako czesc CD/CI
+T - timely - zawsze pisac testy jednostkowe w czasie tworzenia lub zmiany danej funkcjonalnosci
+
+Zasady CORRECT:
+C - conformance (zgodnosc) - zgodnosc z wymaganiami biznesowymi, zgodnosc wartosci z wzorcami (formatem).
+O - ordering - porzadek danych w zbiorach, zarowno wejsciowych jak i wynikowych. e.g. jesli metoda wymaga listy posortowanej, nalezy przetestowac jak zachowa sie przy nieposortowanej
+R - range - przekroczenie maksymalnej wartosci dla danego typu. testy wartosci granicznych
+R - reference - czy wszystkie warunki do poprawnego dzialania testu zostaly wykonane i czy sa odpowiednio oznaczone jako warunki wstepne do testu. e.g. konwencja given/when/then
+E - existence - czy istnieje albo nieistnieje, e.g. co sie dzieje gdy przesle wartosc null lub pustego stringa.
+C - cardinality - moc zbioru - sprawdzenie czy lista jest pusta, ma 1 element lub wiecej.
+T - time - kolejnosc wykonywania metod, oraz sprawdzenie miejsc w kodzie gdzie operacje wykonuja sie wielowatkowo

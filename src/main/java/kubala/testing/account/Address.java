@@ -1,4 +1,4 @@
-package kubala.testing;
+package kubala.testing.account;
 
 public class Address {
 

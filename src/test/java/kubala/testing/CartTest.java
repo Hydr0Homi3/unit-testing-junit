@@ -1,5 +1,6 @@
 package kubala.testing;
 
+import kubala.testing.order.Order;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;

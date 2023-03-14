@@ -1,4 +1,4 @@
-package kubala.testing;
+package kubala.testing.order;
 
 import java.io.*;
 
@@ -18,7 +18,12 @@ public class OrderBackup {
     }
 
     public void backupOrder(Order order) throws IOException {
-        writer.append(order.toString());
+
+        if (writer == null) {
+            throw new IOException("Backup File not created!");
+        } else {
+            writer.append(order.toString());
+        }
     }
 
     public void closeFile() throws IOException {

@@ -1,6 +1,6 @@
 package kubala.testing;
 
-import com.thoughtworks.qdox.model.expression.Or;
+import kubala.testing.order.Order;
 
 import java.util.ArrayList;
 import java.util.List;

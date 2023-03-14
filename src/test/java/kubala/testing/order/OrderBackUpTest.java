@@ -1,6 +1,6 @@
-package kubala.testing;
+package kubala.testing.order;
 
-import com.thoughtworks.qdox.model.expression.Or;
+import kubala.testing.Meal;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
