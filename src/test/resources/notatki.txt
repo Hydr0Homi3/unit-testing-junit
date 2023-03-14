@@ -13,3 +13,15 @@ R - reference - czy wszystkie warunki do poprawnego dzialania testu zostaly wyko
 E - existence - czy istnieje albo nieistnieje, e.g. co sie dzieje gdy przesle wartosc null lub pustego stringa.
 C - cardinality - moc zbioru - sprawdzenie czy lista jest pusta, ma 1 element lub wiecej.
 T - time - kolejnosc wykonywania metod, oraz sprawdzenie miejsc w kodzie gdzie operacje wykonuja sie wielowatkowo
+
+Test coverage - ile % kodu jest pokryte przez testy jednostkowe. (Jacoco plugin)
+
+Antywzorce testowe:
+- nastawienie na 100% pokrycia kodu
+- nieintuicyjne nazwy metod testowych
+- długowykonujace się testy
+- testy, ktore po sobie nie sprzataja
+- wiele niepowiazanych asercji w jednym tescie
+- ignorowanie testow, zamiast naprawy
+- traktowanie kodu testow jako kodu drugiej kategorii
+- reczne uruchamianie testow, brak automatyzacji

@@ -44,4 +44,8 @@ public class Account {
         }
 
     }
+
+    public String getEmail() {
+        return email;
+    }
 }
