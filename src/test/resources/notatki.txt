@@ -30,4 +30,6 @@ Stuby - przykladowa implementacja kodu, ktorego zachowanie chcemy przetestowac. 
        to najlepiej utworzyc je w tej samej paczce w ktorej sa klasy testowe.
        Przydatne przy prostych metodach, niestety przy rozroscie aplikacja sa ciezkie w utrzymaniu.
 
-Mocki -
+Mocki - obiekty ktore symuluja zachowanie prawdziwych obiektow i prawdziwego kodu. Moga byc tworzone dynamicznie, w czasie runtime'u aplikacji.
+        Zapewniaja znacznie wieksza elastycznosc w porownaniu do stubow i daja rowniez znacznie wiecej funkcjonalnosci.
+        Mocki, w przeciwienstwie do stubow, nie wymagaja tworzenia osobnej klasy. Ponadto, mozemy stworzyc wiecej scenariuszy testowych.
