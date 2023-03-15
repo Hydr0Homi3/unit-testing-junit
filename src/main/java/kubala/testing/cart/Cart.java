@@ -1,5 +1,6 @@
-package kubala.testing;
+package kubala.testing.cart;
 
+import kubala.testing.Meal;
 import kubala.testing.order.Order;
 
 import java.util.ArrayList;
