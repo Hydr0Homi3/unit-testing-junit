@@ -1,4 +1,4 @@
-package kubala.testing;
+package kubala.testing.extensions;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;

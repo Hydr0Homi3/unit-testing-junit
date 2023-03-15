@@ -25,3 +25,9 @@ Antywzorce testowe:
 - ignorowanie testow, zamiast naprawy
 - traktowanie kodu testow jako kodu drugiej kategorii
 - reczne uruchamianie testow, brak automatyzacji
+
+Stuby - przykladowa implementacja kodu, ktorego zachowanie chcemy przetestowac. Do stuba tworzymy nowa klase, a ze stuby sa nierozloczne z testami jednostkowymi
+       to najlepiej utworzyc je w tej samej paczce w ktorej sa klasy testowe.
+       Przydatne przy prostych metodach, niestety przy rozroscie aplikacja sa ciezkie w utrzymaniu.
+
+Mocki -

@@ -1,5 +1,6 @@
 package kubala.testing;
 
+import kubala.testing.extensions.IAExceptionIgnoreExtension;
 import kubala.testing.order.Order;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Tag;
