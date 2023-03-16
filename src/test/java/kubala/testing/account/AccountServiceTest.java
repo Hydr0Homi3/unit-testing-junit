@@ -1,17 +1,22 @@
 package kubala.testing.account;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
+@MockitoSettings(strictness = Strictness.STRICT_STUBS)
 public class AccountServiceTest { //implementacja mockow
 
     @Test
@@ -57,5 +62,20 @@ public class AccountServiceTest { //implementacja mockow
         Account account3 = new Account(address2);                       //konto aktywne
 
         return Arrays.asList(account1, account2, account3);
+    }
+
+    @Test
+    void getAccountByName() {
+
+        //given
+        AccountRepository accountRepository = mock(AccountRepository.class);
+        AccountService accountService = new AccountService(accountRepository);
+        given(accountRepository.getByName("Jakub")).willReturn(Collections.singletonList("Kubala"));
+
+        //when
+        List<String> accountNames = accountService.findByName("Jakub");
+
+        //then
+        assertThat(accountNames, Matchers.contains("Kubala"));
     }
 }
