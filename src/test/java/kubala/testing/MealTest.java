@@ -20,6 +20,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 
 class MealTest {
 
@@ -157,5 +159,23 @@ class MealTest {
     //metoda pomocnicza do calculateMealPrices()
     private int calculatePrice(int price, int quantity) {
         return price * quantity;
+    }
+
+    @Test
+    public void testMealSumPrice() {
+
+        //given
+        Meal meal  = mock(Meal.class);      //mockujemy obiekt z klasy Meal (zwraca domyslna wartosc = 0)
+
+        given(meal.getPrice()).willReturn(15);      //mockujemy dzialanie metod getPrice i getQuantity
+        given(meal.getQuantity()).willReturn(3);
+
+        given(meal.sumPrice()).willCallRealMethod();    //wywolujemy metode willCallRealMethod na metodzie sumPrice na mocku meal
+
+        //when
+        int result = meal.sumPrice();
+
+        //then
+        assertThat(result, equalTo(45));
     }
 }
