@@ -191,19 +191,17 @@ class MealTest {
     @ExtendWith(MockitoExtension.class)
     public void testMealSumPriceWithSpy() {
 
-        //given
-        Meal meal  = spy(Meal.class);           //tworzymy instancje klasy Meal jako obiekt typu spy
 
-        given(meal.getPrice()).willReturn(15);  //programujemy dzialanie dwoch metod tego obieku
-        given(meal.getQuantity()).willReturn(3);
+        given(mealSpy.getPrice()).willReturn(15);  //programujemy dzialanie dwoch metod tego obieku
+        given(mealSpy.getQuantity()).willReturn(3);
 
 
         //when
-        int result = meal.sumPrice();           //wywolujemy na obiekcie metode sumPrice
+        int result = mealSpy.sumPrice();           //wywolujemy na obiekcie metode sumPrice
 
         //then
-        then(meal).should().getPrice();         //dzieki temu ze jest to obiekt spy mozemy zweryfikowac dzialanie metod
-        then(meal).should().getQuantity();
+        then(mealSpy).should().getPrice();         //dzieki temu ze jest to obiekt spy mozemy zweryfikowac dzialanie metod
+        then(mealSpy).should().getQuantity();
         assertThat(result, equalTo(45));        //dokonanie stosownej asercji
     }
 }
