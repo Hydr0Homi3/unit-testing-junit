@@ -33,3 +33,6 @@ Stuby - przykladowa implementacja kodu, ktorego zachowanie chcemy przetestowac. 
 Mocki - obiekty ktore symuluja zachowanie prawdziwych obiektow i prawdziwego kodu. Moga byc tworzone dynamicznie, w czasie runtime'u aplikacji.
         Zapewniaja znacznie wieksza elastycznosc w porownaniu do stubow i daja rowniez znacznie wiecej funkcjonalnosci.
         Mocki, w przeciwienstwie do stubow, nie wymagaja tworzenia osobnej klasy. Ponadto, mozemy stworzyc wiecej scenariuszy testowych.
+
+Spy - wrapper, obiekt opakowujacy obiekt danej klasy, ktorego dzialanie mozna sledzic oraz weryfikowac podobnie jak z mockami. Dzialanie obiektu Spy mozemy mokowac
+      w takiej wytuacji obiekt Spy jest czesciowo mockiem a czesciowo "normalnym" obiektem, dlatego na obiekty typu Spy mowi sie rowniez "partial mock".

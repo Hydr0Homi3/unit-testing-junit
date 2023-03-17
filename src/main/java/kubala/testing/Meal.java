@@ -9,6 +9,9 @@ public class Meal {
 
     private int quantity;
 
+    public Meal() {
+    }
+
     public Meal(int price) {
         this.price = price;
     }

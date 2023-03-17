@@ -12,6 +12,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -21,9 +23,15 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+
 
 class MealTest {
+
+    @Spy                    //tworzenie obiektu spy dla calej klasy
+    private Meal mealSpy;
 
     @Test
     public void shouldReturnDiscountedPrice() {
@@ -177,5 +185,25 @@ class MealTest {
 
         //then
         assertThat(result, equalTo(45));
+    }
+
+    @Test
+    @ExtendWith(MockitoExtension.class)
+    public void testMealSumPriceWithSpy() {
+
+        //given
+        Meal meal  = spy(Meal.class);           //tworzymy instancje klasy Meal jako obiekt typu spy
+
+        given(meal.getPrice()).willReturn(15);  //programujemy dzialanie dwoch metod tego obieku
+        given(meal.getQuantity()).willReturn(3);
+
+
+        //when
+        int result = meal.sumPrice();           //wywolujemy na obiekcie metode sumPrice
+
+        //then
+        then(meal).should().getPrice();         //dzieki temu ze jest to obiekt spy mozemy zweryfikowac dzialanie metod
+        then(meal).should().getQuantity();
+        assertThat(result, equalTo(45));        //dokonanie stosownej asercji
     }
 }
