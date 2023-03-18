@@ -1,4 +1,4 @@
-package kubala.testing.homework.junit;
+package kubala.testing.homework_mockito;
 
 import java.util.Objects;
 
@@ -25,8 +25,11 @@ public class Cargo {
         return Objects.hash(name, weight);
     }
 
+    String getName() {
+        return this.name;
+    }
 
     int getWeight() {
-        return weight;
+        return this.weight;
     }
 }

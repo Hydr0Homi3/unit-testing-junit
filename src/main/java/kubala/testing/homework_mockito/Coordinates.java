@@ -1,4 +1,4 @@
-package kubala.testing.homework.junit;
+package kubala.testing.homework_mockito;
 
 import java.util.Objects;
 

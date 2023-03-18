@@ -1,4 +1,4 @@
-package kubala.testing.homework.junit;
+package kubala.testing.homework_mockito;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,5 +85,13 @@ public class Unit {
 
     int getLoad() {
         return this.currentCargoWeight;
+    }
+
+    Coordinates getCoordinates() {
+        return this.coordinates;
+    }
+
+    List<Cargo> getCargo() {
+        return this.cargo;
     }
 }

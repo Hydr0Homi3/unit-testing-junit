@@ -1,4 +1,4 @@
-package kubala.testing.homework.junit;
+package kubala.testing.homework_mockito;
 /*Przed Tobą pierwsze wyzwanie!
 
 Twoim zadaniem jest stworzenie metod testowych dla poniższych klas:
