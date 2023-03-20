@@ -6,7 +6,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Optional;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
 
 /*Bazując na poniższych klasach, utwórz testy dla klasy UnitService.
 Do stworzenia mocków dla UnitRepository i CargoRepository skorzystaj z frameworka Mockito 2.
@@ -24,6 +29,24 @@ class UnitServiceTest {
 
     @InjectMocks
     private UnitService unitService;
+
+    @Test
+    public void addedCargoShouldBeLoadedToUnit() {
+
+        //given
+        Unit unit = new Unit(new Coordinates(0, 0), 10, 10);
+        Cargo cargo = new Cargo("package", 8);
+
+        given(cargoRepository.findCargoByName("package")).willReturn(Optional.of(cargo));
+
+        //when
+        unitService.addCargoByName(unit, "package");
+
+        //then
+        verify(cargoRepository).findCargoByName("package");
+        assertThat(unit.getLoad(), is(8));
+        assertThat(unit.getCargo().get(0), is(cargo));
+    }
 
 
 }
