@@ -1,5 +1,6 @@
 package kubala.testing.meal;
 
+import javax.naming.directory.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -52,9 +53,27 @@ public class MealRepository {
         return result;
     }
 
-    public List<Meal> findByPrice(int price) {
-        return meals.stream()
-                .filter(meal -> meal.getPrice() == price)
-                .collect(Collectors.toList());
+    public List<Meal> findByPrice(int price, SearchType searchType) {
+
+        List<Meal> result = new ArrayList<>();
+
+        switch (searchType) {
+            case EXACT -> {
+                result = meals.stream()
+                        .filter(meal -> meal.getPrice() == price)
+                        .collect(Collectors.toList());
+            }
+            case LESS -> {
+                result = meals.stream()
+                        .filter(meal -> meal.getPrice() < price)
+                        .collect(Collectors.toList());
+            }
+            case MORE -> {
+                result = meals.stream()
+                        .filter(meal -> meal.getPrice() > price)
+                        .collect(Collectors.toList());
+            }
+        }
+        return result;
     }
 }
