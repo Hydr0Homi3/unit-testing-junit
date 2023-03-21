@@ -1,5 +1,6 @@
-package kubala.testing;
+package kubala.testing.meal;
 
+import kubala.testing.meal.Meal;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

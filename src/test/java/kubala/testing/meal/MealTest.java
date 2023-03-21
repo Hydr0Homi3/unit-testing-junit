@@ -1,6 +1,7 @@
-package kubala.testing;
+package kubala.testing.meal;
 
 import kubala.testing.extensions.IAExceptionIgnoreExtension;
+import kubala.testing.meal.Meal;
 import kubala.testing.order.Order;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Tag;

@@ -1,7 +1,7 @@
 package kubala.testing.order;
 
 import kubala.testing.extensions.BeforeAfterExtensionTest;
-import kubala.testing.Meal;
+import kubala.testing.meal.Meal;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

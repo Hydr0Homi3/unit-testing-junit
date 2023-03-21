@@ -1,6 +1,6 @@
 package kubala.testing.order;
 
-import kubala.testing.Meal;
+import kubala.testing.meal.Meal;
 
 import java.util.ArrayList;
 import java.util.List;

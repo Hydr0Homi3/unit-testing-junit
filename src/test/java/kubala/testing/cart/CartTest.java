@@ -1,7 +1,6 @@
 package kubala.testing.cart;
 
-import kubala.testing.Meal;
-import kubala.testing.cart.Cart;
+import kubala.testing.meal.Meal;
 import kubala.testing.order.Order;
 import org.junit.jupiter.api.Test;
 

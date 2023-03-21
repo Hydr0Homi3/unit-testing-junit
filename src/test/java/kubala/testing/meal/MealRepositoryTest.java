@@ -1,6 +1,9 @@
-package kubala.testing;
+package kubala.testing.meal;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -8,6 +11,11 @@ import static org.hamcrest.Matchers.*;
 public class MealRepositoryTest {
 
     MealRepository mealRepository = new MealRepository();
+
+    @BeforeEach
+    public void cleanUp() {
+        mealRepository.getAllMeals().clear();
+    }
 
     @Test
     public void shouldBeAbleToAddMealToRepository() {
@@ -34,5 +42,33 @@ public class MealRepositoryTest {
 
         //then
         assertThat(mealRepository.getAllMeals(), not(contains(meal)));
+    }
+
+    @Test
+    public void shouldBeAbleToFindMealByName() {
+
+        //given
+        Meal meal = new Meal(10, "Pizza");
+        mealRepository.add(meal);
+
+        //when
+        List<Meal> results = mealRepository.findByName("Pizza");
+
+        //then
+        assertThat(results.size(), is(1));
+    }
+
+    @Test
+    public void shouldBeAbleToFindMealByPrice() {
+
+        //given
+        Meal meal = new Meal(10, "Pizza");
+        mealRepository.add(meal);
+
+        //when
+        List<Meal> results = mealRepository.findByPrice(10);
+
+        //then
+        assertThat(results.size(), is(1));
     }
 }

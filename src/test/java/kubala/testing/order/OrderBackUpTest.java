@@ -1,6 +1,6 @@
 package kubala.testing.order;
 
-import kubala.testing.Meal;
+import kubala.testing.meal.Meal;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
