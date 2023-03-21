@@ -36,3 +36,8 @@ Mocki - obiekty ktore symuluja zachowanie prawdziwych obiektow i prawdziwego kod
 
 Spy - wrapper, obiekt opakowujacy obiekt danej klasy, ktorego dzialanie mozna sledzic oraz weryfikowac podobnie jak z mockami. Dzialanie obiektu Spy mozemy mokowac
       w takiej wytuacji obiekt Spy jest czesciowo mockiem a czesciowo "normalnym" obiektem, dlatego na obiekty typu Spy mowi sie rowniez "partial mock".
+
+Test Driven Development (TDD) - metodyka w której najpierw piszemy testy a następnie kod. Po pierwsze piszemy test dla naszej funkcjonalności, który nie przechodzi (Red).
+        Następnie implementujemy funkcjonalności aby test przechodził (Green), a w następnym kroku refaktorujemy kod (Refactor)
+        Cykl: Red -> Green -> Refactor - Podejście iteracyjne.
+
