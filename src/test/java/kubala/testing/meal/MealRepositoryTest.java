@@ -8,6 +8,22 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
+/*
+W ramach ćwiczeń z metodyką Test Driven Development, mamy dla Ciebie dwa zadania:
+Zadanie nr 1:
+
+Należy utworzyć rozszerzenie metody findByPrice tak by można było szukać po cenie niższej, równej i wyższej niż podana.
+
+Podpowiedź: zamiast boolean warto jako drugi element użyć np. Enum określającego typ operacji.
+
+Zadanie nr 2:
+
+Analitycy doszli do wniosku, że częstym przypadkiem użycia będzie wyszukiwanie po nazwie i po cenie jednocześnie.
+Musisz więc dodać metodę find w MealRepository, która będzie wyszukiwać posiłki według nazwy (dokładnej, bądź po pierwszych literach)
+oraz po cenie (większa, mniejsza, równa). Metoda może więc przymować  cztery argumenty -
+nazwa posiłku, flage czy wyszukać dokładną nazwę czy nie, a następnie cenę oraz rodzaj wyszukiwania.
+ */
+
 public class MealRepositoryTest {
 
     MealRepository mealRepository = new MealRepository();
