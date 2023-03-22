@@ -37,6 +37,39 @@ public class MealRepository {
         meals.remove(meal);
     }
 
+    public List<Meal> find(String mealName, boolean exactMatch, int price, SearchType searchType) {
+
+        List<Meal> nameMatches = findByName(mealName, exactMatch);
+
+        List<Meal> results = findByPriceWithAdditionalData(price, searchType, nameMatches);
+
+        return results;
+    }
+
+    public List<Meal> findByPriceWithAdditionalData(int price, SearchType searchType, List<Meal> additionalInfo) {
+        List<Meal> result = new ArrayList<>();
+
+        switch (searchType) {
+            case EXACT -> {
+                result = additionalInfo.stream()
+                        .filter(meal -> meal.getPrice() == price)
+                        .collect(Collectors.toList());
+            }
+            case LESS -> {
+                result = additionalInfo.stream()
+                        .filter(meal -> meal.getPrice() < price)
+                        .collect(Collectors.toList());
+            }
+            case MORE -> {
+                result = additionalInfo.stream()
+                        .filter(meal -> meal.getPrice() > price)
+                        .collect(Collectors.toList());
+            }
+        }
+        return result;
+    }
+
+
     public List<Meal> findByName(String mealName, boolean exactMatch) {
 
         List<Meal> result;
@@ -55,25 +88,6 @@ public class MealRepository {
 
     public List<Meal> findByPrice(int price, SearchType searchType) {
 
-        List<Meal> result = new ArrayList<>();
-
-        switch (searchType) {
-            case EXACT -> {
-                result = meals.stream()
-                        .filter(meal -> meal.getPrice() == price)
-                        .collect(Collectors.toList());
-            }
-            case LESS -> {
-                result = meals.stream()
-                        .filter(meal -> meal.getPrice() < price)
-                        .collect(Collectors.toList());
-            }
-            case MORE -> {
-                result = meals.stream()
-                        .filter(meal -> meal.getPrice() > price)
-                        .collect(Collectors.toList());
-            }
-        }
-        return result;
+        return findByPriceWithAdditionalData(price, searchType, meals);
     }
 }
